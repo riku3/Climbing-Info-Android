@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "266671657713",
+    "firebase_url": "https://climbing-info-android.firebaseio.com",
+    "project_id": "climbing-info-android",
+    "storage_bucket": "climbing-info-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266671657713:android:e41d77b440ff5342140f50",
+        "android_client_info": {
+          "package_name": "com.rando_climbing.Climbing_Info"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "266671657713-pcmjvq6cmelibq3i6c5lhn588qr96enq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCV5TCb3GH0sQ_RXE62d8CuLR9cBXZt7eA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "266671657713-pcmjvq6cmelibq3i6c5lhn588qr96enq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
