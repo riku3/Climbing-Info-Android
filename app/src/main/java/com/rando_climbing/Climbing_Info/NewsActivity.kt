@@ -14,6 +14,7 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import com.github.kittinunf.fuel.httpGet
 import kotlinx.android.synthetic.main.activity_news.*
 import android.os.AsyncTask
+import androidx.appcompat.app.AlertDialog
 import java.io.Serializable
 
 class NewsActivity : AppCompatActivity() {
@@ -57,6 +58,13 @@ class NewsActivity : AppCompatActivity() {
     }
 
     inner class HitAPITask: AsyncTask<String, String, String>() {
+        lateinit var alertDialog: AlertDialog.Builder
+
+        override fun onPreExecute() {
+            super.onPreExecute()
+            alertDialog = AlertDialog.Builder(this@NewsActivity)
+        }
+
         override fun doInBackground(vararg params: String?): String {
             val API_URL = params[0]!!
 
@@ -67,6 +75,18 @@ class NewsActivity : AppCompatActivity() {
         override fun onPostExecute(result: String?) {
             super.onPostExecute(result)
             jsonSting = result!!
+
+            if (jsonSting == "") {
+                alertDialog
+                        .setTitle("接続失敗")
+                        .setMessage("インターネットに接続されていない可能性があります。")
+                        .setPositiveButton("アプリを閉じる", { dialog, which ->
+                            finish()
+                        })
+                        .show()
+                return
+            }
+
             dataList = jacksonObjectMapper().readValue(jsonSting)
 
             for (data in dataList) {
